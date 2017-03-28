@@ -8,8 +8,8 @@ import { Keg } from './keg.model';
   <ul (click)="selectKeg(keg)">
     <li> Name: {{keg.name}} </li>
     <li>Brand: {{keg.brand}} </li>
-    <li>Price: {{keg.price}} </li>
-    <li>alcoholContent: {{keg.alcoholContent}}</li>
+    <li [class]='cost(keg)'>Price: {{keg.price}} </li>
+    <li [class]='strength(keg)'>alcoholContent: {{keg.alcoholContent}}</li>
     <li [class]='runningOut(keg)'>pints left: {{keg.pints}}</li>
   </ul>
   <button (click)="soldPint(keg)">sold a pint!</button>
@@ -23,6 +23,25 @@ export class KegListComponent {
 
   selectKeg(keg: Keg) {
     this.clickSender.emit(keg);
+  }
+
+  strength(keg) {
+    var ac = parseInt(keg.alcoholContent);
+    if(ac > 5.5) {
+      return 'bg-success';
+    } else {
+      return 'bg-danger';
+    }
+  }
+
+  cost(keg) {
+    var cost = parseInt(keg.price.replace(/\D/g,''));
+    console.log(cost);
+    if(cost <= 150) {
+      return 'bg-success';
+    } else {
+      return 'bg-danger';
+    }
   }
 
   soldPint(keg: Keg) {
