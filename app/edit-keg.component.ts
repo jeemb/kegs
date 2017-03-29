@@ -13,6 +13,15 @@ import { Keg } from './keg.model';
     <input [(ngModel)]="selectedKeg.price">
     <label>Alcohol Content</label>
     <input [(ngModel)]="selectedKeg.alcoholContent">
+    <label>Type</label>
+    <select [(ngModel)]="selectedKeg.type">
+    <option value="ipa">ipa</option>
+    <option value="amber">amber</option>
+    <option value="kombucha">kombucha</option>
+    <option value="porter">porter</option>
+    <option value="stout">stout</option>
+    <option value="shitty">shitty</option>
+    </select>
     <button (click)="finishedEditing()">Done</button>
   </div>
   `

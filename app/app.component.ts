@@ -15,9 +15,9 @@ import { Keg } from './keg.model';
 
 export class AppComponent {
   kegs: Keg[] = [
-    new Keg('colorbreak', 'dreamscape', '$200', '5.2%'),
-    new Keg('aligator', 'mafioso', '$120', '4.4%'),
-    new Keg('fungus', 'honey', '$150', '7.8%')
+    new Keg('colorbreak', 'dreamscape', '$200', '5.2%', 'amber'),
+    new Keg('aligator', 'mafioso', '$120', '4.4%', 'kombucha'),
+    new Keg('fungus', 'honey', '$150', '7.8%', 'stout')
   ];
 
   selectedKeg = null;
