@@ -4,7 +4,12 @@ import { Keg } from './keg.model';
 @Component({
   selector: 'keg-list',
   template: `
-  <div *ngFor="let keg of kegs" >
+  <select (change)="onChange($event.target.value)">
+    <option value="fullKegs">Full Kegs</option>
+    <option value="emptyKegs">Empty Kegs</option>
+    <option value="allKegs">All Kegs</option>
+  </select>
+  <div *ngFor="let keg of kegs | fullness:filterByFullness">
   <ul (click)="selectKeg(keg)">
     <li> Name: {{keg.name}} </li>
     <li>Brand: {{keg.brand}} </li>
@@ -21,8 +26,14 @@ export class KegListComponent {
   @Input() kegs: Keg[];
   @Output() clickSender = new EventEmitter();
 
+  filterByFullness: string = "fullKegs";
+
   selectKeg(keg: Keg) {
     this.clickSender.emit(keg);
+  }
+
+  onChange(option){
+    this.filterByFullness = option;
   }
 
   soldPint(keg: Keg) {
