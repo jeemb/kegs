@@ -12,6 +12,9 @@ import { Keg } from './keg.model';
   <select (change)="onTypeChange($event.target.value)">
     <option value="amber">Amber Kegs</option>
     <option value="shitty">Shitty Kegs</option>
+    <option value="ipa">IPA Kegs</option>
+    <option value="stout">Stout Kegs</option>
+    <option value="kombucha">Kombucha Kegs</option>
     <option value="allKegs">All Kegs</option>
   </select>
   <div *ngFor="let keg of kegs | fullness:filterByFullness | type:filterByType">

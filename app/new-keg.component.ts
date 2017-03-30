@@ -16,13 +16,13 @@ import { Keg } from './keg.model';
     <input #newAlcoholContent>
   <label>Select a Type</label>
     <select #newType>
-    <option value="ipa">ipa</option>
-    <option value="amber">amber</option>
-    <option value="kombucha">kombucha</option>
-    <option value="porter">porter</option>
-    <option value="stout">stout</option>
+      <option value="ipa">ipa</option>
+      <option value="amber">amber</option>
+      <option value="kombucha">kombucha</option>
+      <option value="porter">porter</option>
+      <option value="stout">stout</option>
       <option value="shitty">shitty</option>
-      </select>
+    </select>
   <button (click)="submitForm(newName.value, newBrand.value, newPrice.value, newAlcoholContent.value, newType.value);newName.value=''; newBrand.value=''; newPrice.value=''; newAlcoholContent.value='';">Add</button>
   </div>
   `
